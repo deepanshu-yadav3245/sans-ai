@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "./ui/button"
 import { LayoutDashboard } from "lucide-react"
+import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuItem} from "./ui/dropdown-menu"
 const Header = () => {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 
@@ -23,10 +24,24 @@ const Header = () => {
                <Link href={'/dashboard'}>
                   <Button>
                      <LayoutDashboard className="h-4 w-4 "/>
-                     Industry Insights
+                     <span className="hidden md:block">
+                      Industry Insights
+                     </span>
+
                   </Button>
                </Link>
            </SignedIn>
+
+           <DropdownMenu>
+              <DropdownMenuTrigger>
+
+             </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Profile</DropdownMenuItem>
+                <DropdownMenuItem>Billing</DropdownMenuItem>
+                <DropdownMenuItem>Team</DropdownMenuItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
         </div>
       </nav>
 
