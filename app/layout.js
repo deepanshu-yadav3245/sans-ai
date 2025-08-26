@@ -16,34 +16,32 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-     <ClerkProvider
-       appearance={{
-        bashTheme:dark,
-       }}>
-       <html lang="en " suppressHydrationWarning>
-      <body
-        className={`${inter.className}`}
+    <ClerkProvider
+  appearance={{
+    baseTheme: dark,   // 👈 ye correct hai
+  }}
+>
+  <html lang="en" suppressHydrationWarning>
+    <body className={`${inter.className}`}>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem
+        disableTransitionOnChange
       >
-         <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {/* header */}
-             <Header/>
-            <main className="min-h-screen">{children}</main>
-            {/* footer */}
-            <footer className="bg-muted/50 py-12">
-              <div className="container mx-auto px-4 text-center text-gray-200">
-                <p>Made With By rahul</p>
-              </div>
-            </footer>
-          </ThemeProvider>
+        {/* header */}
+        <Header />
+        <main className="min-h-screen">{children}</main>
+        {/* footer */}
+        <footer className="bg-muted/50 py-12">
+          <div className="container mx-auto px-4 text-center text-gray-200">
+            <p>Made With By rahul</p>
+          </div>
+        </footer>
+      </ThemeProvider>
+    </body>
+  </html>
+</ClerkProvider>
 
-      </body>
-    </html>
-     </ClerkProvider>
-   
   );
 }
