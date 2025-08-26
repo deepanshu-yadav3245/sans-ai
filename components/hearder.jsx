@@ -2,7 +2,7 @@ import { SignedIn, SignedOut,SignInButton,UserButton } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "./ui/button"
-import { LayoutDashboard, StarIcon } from "lucide-react"
+import { FileText, GraduationCap, LayoutDashboard, PenBox, StarIcon } from "lucide-react"
 import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuItem} from "./ui/dropdown-menu"
 import { ChevronDown } from "lucide-react";
 
@@ -45,9 +45,24 @@ const Header = () => {
                   </Button>
              </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href={'/resume'} className="flex items-center gap-2">
+                     <FileText className="h-4 w-4 "/>
+                     <span>Build Resume</span>
+                 </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                    <Link href={'/resume'} className="flex items-center gap-2">
+                     <PenBox className="h-4 w-4 "/>
+                     <span>Cover Letter</span>
+                 </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                    <Link href={'/resume'} className="flex items-center gap-2">
+                     <GraduationCap className="h-4 w-4 "/>
+                     <span>Intreview Prep</span>
+                 </Link>
+                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
         </div>
