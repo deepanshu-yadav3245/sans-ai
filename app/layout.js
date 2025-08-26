@@ -18,10 +18,8 @@ export default function RootLayout({ children }) {
   return (
      <ClerkProvider
        appearance={{
-        bashTheme:dark
-       }} 
-     
-     >
+        bashTheme:dark,
+       }}>
        <html lang="en " suppressHydrationWarning>
       <body
         className={`${inter.className}`}
