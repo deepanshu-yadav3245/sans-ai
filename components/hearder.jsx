@@ -2,8 +2,10 @@ import { SignedIn, SignedOut,SignInButton,UserButton } from "@clerk/nextjs"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "./ui/button"
-import { LayoutDashboard } from "lucide-react"
+import { LayoutDashboard, StarIcon } from "lucide-react"
 import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuItem} from "./ui/dropdown-menu"
+import { ChevronDown } from "lucide-react";
+
 const Header = () => {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 
@@ -19,7 +21,7 @@ const Header = () => {
           className="h-12 py-1 w-auto  object-contain"/>
           
         </Link>
-        <div>
+        <div className="flex items-center space-x-2 md:space-x-4">
            <SignedIn>
                <Link href={'/dashboard'}>
                   <Button>
@@ -34,7 +36,13 @@ const Header = () => {
 
            <DropdownMenu>
               <DropdownMenuTrigger>
-
+                <Button>
+                     <StarIcon className="h-4 w-4 "/>
+                     <span className="hidden md:block">
+                      Growth Tools
+                     </span>
+                     <ChevronDown className ="h-4 w-4"/>
+                  </Button>
              </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem>Profile</DropdownMenuItem>
