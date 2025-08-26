@@ -24,7 +24,7 @@ const Header = () => {
         <div className="flex items-center space-x-2 md:space-x-4">
            <SignedIn>
                <Link href={'/dashboard'}>
-                  <Button>
+                  <Button variant="ghost">
                      <LayoutDashboard className="h-4 w-4 "/>
                      <span className="hidden md:block">
                       Industry Insights
@@ -69,13 +69,18 @@ const Header = () => {
          
      <SignedOut>
        <SignInButton>
-         <Button>
+         <Button variant="outline">
             Sign In
          </Button>
        </SignInButton>
      </SignedOut>
+
      <SignedIn>
-        <UserButton />
+        <UserButton 
+        appearance={{
+          
+        }}
+        />
      </SignedIn>
       
         </div>
