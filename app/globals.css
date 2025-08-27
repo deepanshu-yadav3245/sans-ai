@@ -133,4 +133,7 @@
     transparent 1px
   ),
   linear-gradient(to bottom,rgba(225,255,255,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
 }
