@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from './ui/button'
 import Link from 'next/link'
+import Image from 'next/image'
 const HeroSection = () => {
   return (
     <section className='w-full pt-36 md:pt-48 pb-10'>
@@ -30,7 +31,12 @@ const HeroSection = () => {
 
         <div>
             <div>
-                <Image/>
+                <Image
+                  src='/images/hero.png'
+                  alt='Hero Image'
+                  width={800}
+                  height={600}
+                />
             </div>
         </div>
       </div>
