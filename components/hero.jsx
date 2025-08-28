@@ -31,11 +31,13 @@ const HeroSection = () => {
 
         <div>
             <div>
-                <Image
-                  src='/images/hero.png'
-                  alt='Hero Image'
-                  width={800}
-                  height={600}
+               <Image
+                  src={"/banner.jpeg"}
+                  width={1280}
+                  height={1220}
+                  alt='Banner Sansai'
+                  className='rounded-lg shadow-2xl border max-auto'
+                  priority
                 />
             </div>
         </div>
