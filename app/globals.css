@@ -156,3 +156,13 @@
   background: radial-gradient(circle, transparent, rgba(0,0,0,0.3)); /* 0.9 → 0.3 */
   z-index: -1;
 }
+
+@layer utilities {
+  .gradient {
+    @apply bg-gradient-to-r from-gray-400 via-gray-200 to-gray-600;
+  }
+
+  .gradient-title {
+    @apply bg-gradient-to-r from-gray-400 via-gray-200 to-gray-600;
+  }
+}
