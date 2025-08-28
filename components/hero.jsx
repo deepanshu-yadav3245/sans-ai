@@ -36,7 +36,7 @@ const HeroSection = () => {
                   width={1280}
                   height={720}
                   alt='Banner Sansai'
-                  className='rounded-lg shadow-2xl border max-auto'
+                  className='rounded-lg shadow-2xl border mx-auto'
                   priority
                 />
             </div>
