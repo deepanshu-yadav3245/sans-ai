@@ -27,6 +27,12 @@ const HeroSection = () => {
                 Get Started</Button>
             </Link>
         </div>
+
+        <div>
+            <div>
+                <Image/>
+            </div>
+        </div>
       </div>
     </section>
   )
