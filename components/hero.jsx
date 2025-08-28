@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Button } from './ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -34,7 +34,7 @@ const HeroSection = () => {
                <Image
                   src={"/banner.jpeg"}
                   width={1280}
-                  height={1220}
+                  height={720}
                   alt='Banner Sansai'
                   className='rounded-lg shadow-2xl border max-auto'
                   priority
