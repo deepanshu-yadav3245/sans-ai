@@ -3,6 +3,7 @@ import HeroSection from "@/components/hero";
 import { features } from "@/data/features";
 import { Card, CardContent, } from "@/components/ui/card"; 
 import { howItWorks } from "@/data/howItWorks";
+import { testimonial } from "@/data/testimonial";
 
 export default function Home() {
   return(
@@ -80,7 +81,25 @@ export default function Home() {
              </div>
            </div>
         </section>
-      
+
+            <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+           <div className="container mx-auto px-4 md:px-6">
+              <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">What Our Users Say</h2>
+              <div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+              >{testimonial.map((testimonial,index)=>{
+                return(
+              <Card key={index} className="bg-background">
+                <CardContent className="pt-6">
+                  <div>
+                     
+                  </div>
+                </CardContent>
+             </Card> 
+                )
+              })}</div>
+           </div>
+        </section>
     </div>
   )
 }
