@@ -6,6 +6,13 @@ export default function Home() {
    <div>
        <div className="grid-background">
         <HeroSection />
+
+        <section>
+           <div>
+              <h2>PowerFull Features for Your Career Growth</h2>
+           </div>
+        </section>
+
        </div>
     </div>
   )
