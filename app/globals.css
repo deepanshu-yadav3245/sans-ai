@@ -151,13 +151,26 @@
 .hero-image-wrapper {
   perspective: 1000px;
 }
-
+/* 
 .hero-image {
   transform: rotateX(15deg) scale(1);
   transition: transform 0.5s ease-out;
   will-change: transform;
+} */
+
+.hero-image {
+  transform: rotateX(15deg) scale(1);
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); /* spring-like smooth */
+  will-change: transform;
 }
 
+/* 
 .hero-image.scrolled{
   transform: rotate(0deg) scale(1) translateY(40px) ;
+} */
+
+.hero-image.scrolled {
+  transform: rotateX(0deg) scale(1.05) translateY(40px);
 }
+
+
