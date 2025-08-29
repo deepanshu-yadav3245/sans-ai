@@ -3,6 +3,9 @@ import { Button } from './ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
 const HeroSection = () => {
+
+
+  
   return (
     <section className='w-full pt-36 md:pt-48 pb-10'>
       <div className='space-y-6 text-center'>
@@ -11,13 +14,13 @@ const HeroSection = () => {
                 <br />
                 Professional Success
             </h1>
-            <p>
+            <p className='mx-auto max-w-[600px] text-muted-foreground md:text-xl'>
                 Advance your career with personalized AI-driven coaching, tailored 
                 to your unique professional journey.
             </p>
         </div>
 
-        <div>
+        <div className=' flex justify-center space-x-4'>
             <Link href='/dashboard'>
                <Button size="lg" className="px-8">
                 Get Started</Button>
@@ -29,7 +32,7 @@ const HeroSection = () => {
             </Link>
         </div>
 
-        <div>
+        <div className='hero-image-wrapper mt-5 md:mt-0'>
             <div>
                <Image
                   src={"/banner.jpeg"}
