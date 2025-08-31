@@ -94,7 +94,8 @@ export default function Home() {
                 <CardContent className="pt-6">
                   <div>
                       <div>
-                        <div><Image
+                        <div className="">
+                       <Image
                         width={40}
                         height={40}
                         src={testimonial.image}
@@ -104,7 +105,9 @@ export default function Home() {
                         
                         </div>
                         <div>
-                          
+                          <p className="font-semibold">{testimonial.author}</p>
+                          <p className="text-sm text-muted bg-card-foreground">{testimonial.role}</p>
+                          <p className="text-sm text-primary">{testimonial.company}</p>
                         </div>
                       </div>
                       <blockquote></blockquote>
