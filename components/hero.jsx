@@ -42,10 +42,10 @@ useEffect(() =>{
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000" />
       
       <div className='space-y-8 text-center relative z-10'>
-        <div className='space-y-8 mx-auto max-w-4xl'>
+        <div className='space-y-8 mx-auto max-w-5xl'>
             <h1 
               ref={titleRef}
-              className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl transition-all duration-1000 opacity-100 translate-y-0"
+              className="text-4xl font-bold md:text-5xl lg:text-6xl xl:text-7xl transition-all duration-1000 opacity-100 translate-y-0 leading-tight"
               style={{
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)',
                 backgroundSize: '200% 200%',
@@ -55,9 +55,8 @@ useEffect(() =>{
                 animation: 'gradient-shift 3s ease-in-out infinite'
               }}
             >
-                Your AI Career Coach for
-                <br />
-                 Professional Success
+                <span className="block">Your AI Career Coach for</span>
+                <span className="block">Professional Success</span>
             </h1>
             <p 
               ref={subtitleRef}
