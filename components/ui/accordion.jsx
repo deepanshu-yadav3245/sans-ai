@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 function Accordion({
   ...props
 }) {
-  return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
+  return <AccordionPrimitive.Root data-slot="accordion" className="space-y-4" {...props} />;
 }
 
 function AccordionItem({
@@ -19,7 +19,10 @@ function AccordionItem({
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("border-b last:border-b-0", className)}
+      className={cn(
+        "border-0 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-lg",
+        className
+      )}
       {...props} />
   );
 }
@@ -34,13 +37,16 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180",
+          "focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-2xl py-6 px-6 text-left text-base font-semibold transition-all duration-300 outline-none hover:text-primary focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180 group relative overflow-hidden",
           className
         )}
         {...props}>
-        {children}
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Content */}
+        <span className="relative z-10">{children}</span>
         <ChevronDownIcon
-          className="text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
+          className="text-muted-foreground pointer-events-none size-5 shrink-0 translate-y-0.5 transition-all duration-300 group-hover:text-primary relative z-10" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
@@ -54,9 +60,13 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
+      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm transition-all duration-300"
       {...props}>
-      <div className={cn("pt-0 pb-4", className)}>{children}</div>
+      <div className={cn("pt-0 pb-6 px-6 relative z-10", className)}>
+        {/* Subtle border indicator */}
+        <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-primary/10 to-transparent" />
+        {children}
+      </div>
     </AccordionPrimitive.Content>
   );
 }
