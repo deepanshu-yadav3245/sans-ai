@@ -9,16 +9,28 @@ import { faqs } from "@/data/faqs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"; 
 import AnimatedBackground from "@/components/ui/animated-background";
 import ScrollProgress from "@/components/ui/scroll-progress";
+import FloatingElements from "@/components/ui/floating-elements";
+import StatsCounter from "@/components/ui/stats-counter";
+import FeatureShowcase from "@/components/ui/feature-showcase";
+import TestimonialsCarousel from "@/components/ui/testimonials-carousel";
+import CTASection from "@/components/ui/cta-section";
 
 export default function Home() {
+  // Enhanced testimonials with ratings
+  const enhancedTestimonials = testimonial.map(t => ({
+    ...t,
+    rating: 5 // All testimonials get 5 stars
+  }));
+
   return(
    <div className="relative">
        <div className="grid-background"></div>
        <AnimatedBackground variant="geometric" speed="slow" />
+       <FloatingElements />
        <ScrollProgress variant="bar" position="top" showPercentage={false} />
         <HeroSection />
 
-        {/* Enhanced Features Section */}
+        {/* Enhanced Features Section with Interactive Showcase */}
         <section className="w-full py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
            {/* Background decoration */}
            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
@@ -36,43 +48,42 @@ export default function Home() {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                {features.map((feature, index) => (
-                  <Card key={index} className="card-hover glass border-0 shadow-lg text-reveal stagger-1">
-                     <CardContent className="pt-8 pb-6 text-center flex flex-col items-center space-y-4">
-                         <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 hover-lift transition-all duration-300">
-                           <div className="text-primary text-2xl">
-                             {feature.icon}
-                           </div>
-                         </div>
-                         <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                         <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-                     </CardContent>
-                  </Card>
-                ))}
-              </div>
+              {/* Interactive Feature Showcase */}
+              <FeatureShowcase features={features} />
            </div>
         </section>
 
-        {/* Enhanced Stats Section */}
+        {/* Enhanced Stats Section with Animated Counters */}
         <section className="w-full py-16 md:py-24 bg-muted/30 relative overflow-hidden">
            {/* Background decoration */}
            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
            
            <div className="container mx-auto px-4 md:px-6 relative z-10">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                {[
-                  { number: "50+", label: "Industries Covered", icon: "🏭" },
-                  { number: "1000+", label: "Interview Questions", icon: "❓" },
-                  { number: "95%", label: "Success Rate", icon: "📈" },
-                  { number: "24/7", label: "AI Support", icon: "🤖" }
-                ].map((stat, index) => (
-                  <div key={index} className="flex flex-col items-center justify-center space-y-4 text-center text-reveal stagger-1">
-                    <div className="text-4xl mb-2">{stat.icon}</div>
-                    <h3 className="text-4xl md:text-5xl font-bold text-primary">{stat.number}</h3>
-                    <p className="text-muted-foreground font-medium">{stat.label}</p>
-                  </div>
-                ))}
+                <StatsCounter 
+                  endValue={50} 
+                  suffix="+" 
+                  icon="🏭" 
+                  label="Industries Covered" 
+                />
+                <StatsCounter 
+                  endValue={1000} 
+                  suffix="+" 
+                  icon="❓" 
+                  label="Interview Questions" 
+                />
+                <StatsCounter 
+                  endValue={95} 
+                  suffix="%" 
+                  icon="📈" 
+                  label="Success Rate" 
+                />
+                <StatsCounter 
+                  endValue={24} 
+                  suffix="/7" 
+                  icon="🤖" 
+                  label="AI Support" 
+                />
               </div>
            </div>
         </section>
@@ -113,7 +124,7 @@ export default function Home() {
            </div>
         </section>
 
-        {/* Enhanced Testimonials Section */}
+        {/* Enhanced Testimonials Section with Carousel */}
         <section className="w-full py-16 md:py-24 lg:py-32 bg-muted/30 relative overflow-hidden">
            {/* Background decoration */}
            <div className="absolute inset-0 bg-gradient-to-l from-primary/5 via-transparent to-accent/5" />
@@ -128,43 +139,8 @@ export default function Home() {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                {testimonial.map((testimonial, index) => (
-                  <Card key={index} className="glass border-0 shadow-lg hover-lift text-reveal stagger-1">
-                    <CardContent className="pt-8 pb-6">
-                      <div className="flex flex-col space-y-6">
-                          <div className="flex items-center space-x-4">
-                            <div className="relative h-14 w-14 flex-shrink-0">
-                           <Image
-                            width={56}
-                            height={56}
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                            className="rounded-full object-cover border-2 border-primary/20 shadow-lg"   
-                            />
-                            </div>
-                            <div>
-                              <p className="font-bold text-lg">{testimonial.author}</p>
-                              <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                              <p className="text-sm text-primary font-medium">{testimonial.company}</p>
-                            </div>
-                          </div>
-                          <blockquote>
-                             <p className="text-muted-foreground italic relative leading-relaxed">
-                               <span className="text-4xl text-primary absolute -top-4 -left-2 opacity-60">
-                                  &quot;  
-                                </span>
-                                  {testimonial.quote}
-                                  <span className="text-4xl text-primary absolute -bottom-4 -right-2 opacity-60">
-                                    &quot;
-                                  </span>
-                             </p>
-                          </blockquote>
-                      </div>
-                    </CardContent>
-                 </Card> 
-                ))}
-              </div>
+              {/* Interactive Testimonials Carousel */}
+              <TestimonialsCarousel testimonials={enhancedTestimonials} />
            </div>
         </section>
 
@@ -200,7 +176,10 @@ export default function Home() {
            </div>
         </section>
 
-        {/* Enhanced CTA Section */}
+        {/* New Advanced CTA Section */}
+        <CTASection />
+
+        {/* Enhanced Final CTA Section */}
         <section className="w-full py-16 md:py-24 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 relative overflow-hidden">
            <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
               <div className="max-w-4xl mx-auto">
