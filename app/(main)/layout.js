@@ -1,9 +1,9 @@
 import React from 'react'
 
-const MainLayout = () => {
+const MainLayout = ({ children }) => {
   return (
-    <div>
-      <h1>Main Layout</h1>
+    <div className='container mx-auto mt-24 mb-20'>
+      {children}
     </div>
   )
 }
