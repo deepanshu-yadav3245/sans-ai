@@ -92,9 +92,9 @@ export default function Home() {
                 return(
               <Card key={index} className="bg-background">
                 <CardContent className="pt-6">
-                  <div>
-                      <div>
-                        <div className="">
+                  <div className="flex flex-col space-y-4">
+                      <div className="flex items-center space-x-4">
+                        <div className="relative h-12 w-12 flex-shrink-0">
                        <Image
                         width={40}
                         height={40}
@@ -106,7 +106,7 @@ export default function Home() {
                         </div>
                         <div>
                           <p className="font-semibold">{testimonial.author}</p>
-                          <p className="text-sm text-muted bg-card-foreground">{testimonial.role}</p>
+                          <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                           <p className="text-sm text-primary">{testimonial.company}</p>
                         </div>
                       </div>
