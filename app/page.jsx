@@ -83,11 +83,11 @@ export default function Home() {
            </div>
         </section>
 
-            <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+            <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
            <div className="container mx-auto px-4 md:px-6">
               <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">What Our Users Say</h2>
               <div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+              className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
               >{testimonial.map((testimonial,index)=>{
                 return(
               <Card key={index} className="bg-background">
@@ -110,7 +110,18 @@ export default function Home() {
                           <p className="text-sm text-primary">{testimonial.company}</p>
                         </div>
                       </div>
-                      <blockquote></blockquote>
+                      <blockquote>
+                         <p className="text-muted-foreground italic relative">
+                           <span className=" text-3xl text-primary absolute -top-4 -left-2">
+                              &quot;  
+                            </span>
+                              {testimonial.quote}
+                              <span className=" text-3xltext-primary absolute -bottom-4 ">
+                                &quot;
+                              </span>
+                            
+                          </p>
+                      </blockquote>
                   </div>
                 </CardContent>
              </Card> 
