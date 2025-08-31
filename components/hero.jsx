@@ -3,9 +3,15 @@ import { Button } from './ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
+import { useScrollAnimation } from '@/lib/use-scroll-animation'
 
 const HeroSection = () => {
 const imageRef = useRef(null);
+const [titleRef, isTitleVisible] = useScrollAnimation(0.1);
+const [subtitleRef, isSubtitleVisible] = useScrollAnimation(0.2);
+const [buttonsRef, isButtonsVisible] = useScrollAnimation(0.3);
+const [statsRef, isStatsVisible] = useScrollAnimation(0.4);
+const [imageContainerRef, isImageVisible] = useScrollAnimation(0.5);
 
 useEffect(() =>{
   const imageElement = imageRef.current;
@@ -37,7 +43,14 @@ useEffect(() =>{
       
       <div className='space-y-8 text-center relative z-10'>
         <div className='space-y-8 mx-auto max-w-4xl'>
-            <h1 className='text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient-title text-reveal'>
+            <h1 
+              ref={titleRef}
+              className={`text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient-title transition-all duration-1000 ${
+                isTitleVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-20'
+              }`}
+            >
                 Your AI Coach for
                 <br />
                 <span className="relative">
@@ -45,13 +58,27 @@ useEffect(() =>{
                   <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
                 </span>
             </h1>
-            <p className='mx-auto max-w-[700px] text-muted-foreground md:text-xl text-reveal stagger-1 leading-relaxed'>
+            <p 
+              ref={subtitleRef}
+              className={`mx-auto max-w-[700px] text-muted-foreground md:text-xl transition-all duration-1000 delay-200 ${
+                isSubtitleVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-20'
+              } leading-relaxed`}
+            >
                 Advance your career with personalized AI-driven coaching, tailored 
                 to your unique professional journey. Experience the future of learning.
             </p>
         </div>
 
-        <div className='flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 text-reveal stagger-2'>
+        <div 
+          ref={buttonsRef}
+          className={`flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 transition-all duration-1000 delay-400 ${
+            isButtonsVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-20'
+          }`}
+        >
             <Link href='/dashboard'>
                <Button size="lg" className="px-10 py-6 text-lg font-semibold btn-enhanced hover-lift pulse-glow">
                 Get Started
@@ -66,24 +93,38 @@ useEffect(() =>{
         </div>
 
         {/* Enhanced stats section */}
-        <div className="flex flex-wrap justify-center items-center gap-8 mt-12 text-reveal stagger-3">
-          <div className="text-center">
-            <div className="text-2xl font-bold text-primary">50+</div>
+        <div 
+          ref={statsRef}
+          className={`flex flex-wrap justify-center items-center gap-8 mt-12 transition-all duration-1000 delay-600 ${
+            isStatsVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-20'
+          }`}
+        >
+          <div className="text-center group">
+            <div className="text-2xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">50+</div>
             <div className="text-sm text-muted-foreground">Industries</div>
           </div>
           <div className="w-px h-8 bg-border" />
-          <div className="text-center">
-            <div className="text-2xl font-bold text-primary">1000+</div>
+          <div className="text-center group">
+            <div className="text-2xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">1000+</div>
             <div className="text-sm text-muted-foreground">Questions</div>
           </div>
           <div className="w-px h-8 bg-border" />
-          <div className="text-center">
-            <div className="text-2xl font-bold text-primary">95%</div>
+          <div className="text-center group">
+            <div className="text-2xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">95%</div>
             <div className="text-sm text-muted-foreground">Success Rate</div>
           </div>
         </div>
 
-        <div className='hero-image-wrapper mt-12 md:mt-16'>
+        <div 
+          ref={imageContainerRef}
+          className={`hero-image-wrapper mt-12 md:mt-16 transition-all duration-1000 delay-800 ${
+            isImageVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-20'
+          }`}
+        >
             <div ref={imageRef} className='hero-image'>
                <div className="relative">
                  <Image

@@ -7,11 +7,13 @@ import { testimonial } from "@/data/testimonial";
 import { Image } from "lucide-react";
 import { faqs } from "@/data/faqs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"; 
+import AnimatedBackground from "@/components/ui/animated-background";
 
 export default function Home() {
   return(
    <div className="relative">
        <div className="grid-background"></div>
+       <AnimatedBackground variant="geometric" speed="slow" />
         <HeroSection />
 
         {/* Enhanced Features Section */}
