@@ -5,8 +5,10 @@ import { Button } from "./ui/button"
 import { FileText, GraduationCap, LayoutDashboard, PenBox, StarIcon } from "lucide-react"
 import { DropdownMenu,DropdownMenuTrigger,DropdownMenuContent,DropdownMenuItem} from "./ui/dropdown-menu"
 import { ChevronDown } from "lucide-react";
+import { checkUser } from "@/lib/checkUser"
+const Header = async () => {
+  await checkUser();
 
-const Header = () => {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 
     supports-[backdrop-filter]:bg-background/60">
