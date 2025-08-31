@@ -4,6 +4,7 @@ import { features } from "@/data/features";
 import { Card, CardContent, } from "@/components/ui/card"; 
 import { howItWorks } from "@/data/howItWorks";
 import { testimonial } from "@/data/testimonial";
+import { Image } from "lucide-react";
 
 export default function Home() {
   return(
@@ -92,7 +93,21 @@ export default function Home() {
               <Card key={index} className="bg-background">
                 <CardContent className="pt-6">
                   <div>
-                     
+                      <div>
+                        <div><Image
+                        width={40}
+                        height={40}
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="rounded-full object-cover border-2 border-primary/20"   
+                        />
+                        
+                        </div>
+                        <div>
+                          
+                        </div>
+                      </div>
+                      <blockquote></blockquote>
                   </div>
                 </CardContent>
              </Card> 
