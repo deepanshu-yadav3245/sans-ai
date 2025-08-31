@@ -45,18 +45,19 @@ useEffect(() =>{
         <div className='space-y-8 mx-auto max-w-4xl'>
             <h1 
               ref={titleRef}
-              className={`text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient-title transition-all duration-1000 ${
-                isTitleVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-20'
-              }`}
+              className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl transition-all duration-1000 opacity-100 translate-y-0"
+              style={{
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)',
+                backgroundSize: '200% 200%',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                animation: 'gradient-shift 3s ease-in-out infinite'
+              }}
             >
-                Your AI Coach for
+                Your AI Career Coach for
                 <br />
-                <span className="relative">
-                  Professional Success
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
-                </span>
+                 Professional Success
             </h1>
             <p 
               ref={subtitleRef}
