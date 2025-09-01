@@ -90,8 +90,13 @@ export async function getUserOnboardingStatus(){
             select: {
                 industry:true
             },
-        })
+        });
+        return {
+            isOnboarding:!!user?.industry
+        }
     } catch (error){
+        console.erorr("Error checking onboarding status:", error.message)
+        throw new Error("Failed to check onboarding status")
 
     }
 }
