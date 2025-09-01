@@ -122,6 +122,8 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Only this line for smooth scroll */
   }
   
   /* Enhanced scrollbar */
@@ -195,8 +197,6 @@
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
-
-/* Enhanced hero image wrapper with 3D effects */
 .hero-image-wrapper {
   perspective: 1200px;
   transform-style: preserve-3d;

@@ -14,6 +14,10 @@ import StatsCounter from "@/components/ui/stats-counter";
 import FeatureShowcase from "@/components/ui/feature-showcase";
 import TestimonialsCarousel from "@/components/ui/testimonials-carousel";
 import CTASection from "@/components/ui/cta-section";
+import AIChatBot from "@/components/ui/ai-chat-bot";
+import { NotificationProvider } from "@/components/ui/notification-system";
+import InteractiveBackground from "@/components/ui/interactive-background";
+import { HoverCard, InteractiveButton, FloatingActionButton, InteractiveImage, InteractiveText } from "@/components/ui/advanced-hover-effects";
 
 export default function Home() {
   // Enhanced testimonials with ratings
@@ -23,15 +27,97 @@ export default function Home() {
   }));
 
   return(
-   <div className="relative">
+   <NotificationProvider>
+    <div className="relative">
        <div className="grid-background"></div>
+       
+       {/* Interactive Background Effects */}
+       <InteractiveBackground variant="particles" />
+       
        <AnimatedBackground variant="geometric" speed="slow" />
        <FloatingElements />
        <ScrollProgress variant="bar" position="top" showPercentage={false} />
+       
+       {/* AI Chat Bot */}
+       <AIChatBot />
+       
         <HeroSection />
 
+        {/* Advanced Features Demo Section */}
+        <section className="w-full py-16 md:py-24 lg:py-32 bg-background relative">
+           <div className="container mx-auto px-4 md:px-6 relative z-10">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-reveal">
+                  Advanced <span className="text-primary">Interactive Features</span>
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-reveal stagger-1">
+                  Experience cutting-edge interactions with our advanced hover effects and interactive components
+                </p>
+              </div>
+              
+              {/* Interactive Cards Demo */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <HoverCard variant="glass">
+                  <h3 className="text-xl font-bold text-white mb-3">Glass Morphism</h3>
+                  <p className="text-gray-300">Beautiful glass effect with backdrop blur and transparency</p>
+                </HoverCard>
+                
+                <HoverCard variant="neon">
+                  <h3 className="text-xl font-bold text-white mb-3">Neon Glow</h3>
+                  <p className="text-gray-300">Cyberpunk-style neon borders with glowing effects</p>
+                </HoverCard>
+                
+                <HoverCard variant="gradient">
+                  <h3 className="text-xl font-bold text-white mb-3">Gradient Magic</h3>
+                  <p className="text-gray-300">Smooth gradient transitions with dynamic color shifts</p>
+                </HoverCard>
+                
+                <HoverCard variant="floating">
+                  <h3 className="text-xl font-bold text-white mb-3">Floating Effect</h3>
+                  <p className="text-gray-300">Lightweight floating cards with subtle animations</p>
+                </HoverCard>
+                
+                <HoverCard variant="default">
+                  <h3 className="text-xl font-bold text-white mb-3">Classic Style</h3>
+                  <p className="text-gray-300">Timeless design with modern hover interactions</p>
+                </HoverCard>
+                
+                <HoverCard variant="glass">
+                  <h3 className="text-xl font-bold text-white mb-3">Interactive Demo</h3>
+                  <p className="text-gray-300">Move your mouse to see dynamic effects in action</p>
+                </HoverCard>
+              </div>
+              
+              {/* Interactive Buttons Demo */}
+              <div className="text-center mb-16">
+                <h3 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Interactive Buttons
+                </h3>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <InteractiveButton variant="gradient">Gradient Button</InteractiveButton>
+                  <InteractiveButton variant="neon">Neon Button</InteractiveButton>
+                  <InteractiveButton variant="glass">Glass Button</InteractiveButton>
+                  <InteractiveButton variant="floating">Floating Button</InteractiveButton>
+                </div>
+              </div>
+              
+              {/* Interactive Text Demo */}
+              <div className="text-center mb-16">
+                <h3 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Interactive Text Effects
+                </h3>
+                <div className="flex flex-wrap justify-center gap-8 text-2xl">
+                  <InteractiveText variant="gradient">Gradient Text</InteractiveText>
+                  <InteractiveText variant="glow">Glow Effect</InteractiveText>
+                  <InteractiveText variant="underline">Underline</InteractiveText>
+                  <InteractiveText variant="scale">Scale Effect</InteractiveText>
+                </div>
+              </div>
+           </div>
+        </section>
+
         {/* Enhanced Features Section with Interactive Showcase */}
-        <section className="w-full py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
+        <section className="w-full py-16 md:py-24 lg:py-32 bg-background relative">
            {/* Background decoration */}
            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -54,7 +140,7 @@ export default function Home() {
         </section>
 
         {/* Enhanced Stats Section with Animated Counters */}
-        <section className="w-full py-16 md:py-24 bg-muted/30 relative overflow-hidden">
+        <section className="w-full py-16 md:py-24 bg-muted/30 relative">
            {/* Background decoration */}
            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
            
@@ -89,7 +175,7 @@ export default function Home() {
         </section>
 
         {/* Enhanced How It Works Section */}
-        <section className="w-full py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
+        <section className="w-full py-16 md:py-24 lg:py-32 bg-background relative">
            {/* Background decoration */}
            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
            
@@ -125,7 +211,7 @@ export default function Home() {
         </section>
 
         {/* Enhanced Testimonials Section with Carousel */}
-        <section className="w-full py-16 md:py-24 lg:py-32 bg-muted/30 relative overflow-hidden">
+        <section className="w-full py-16 md:py-24 lg:py-32 bg-muted/30 relative">
            {/* Background decoration */}
            <div className="absolute inset-0 bg-gradient-to-l from-primary/5 via-transparent to-accent/5" />
            
@@ -145,7 +231,7 @@ export default function Home() {
         </section>
 
         {/* Enhanced FAQ Section */}
-        <section className="w-full py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
+        <section className="w-full py-16 md:py-24 lg:py-32 bg-background relative">
            {/* Background decoration */}
            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent" />
            
@@ -180,7 +266,7 @@ export default function Home() {
         <CTASection />
 
         {/* Enhanced Final CTA Section */}
-        <section className="w-full py-16 md:py-24 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 relative overflow-hidden">
+        <section className="w-full py-16 md:py-24 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 relative">
            <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
               <div className="max-w-4xl mx-auto">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-reveal">
@@ -200,6 +286,20 @@ export default function Home() {
               </div>
            </div>
         </section>
+        
+        {/* Floating Action Buttons */}
+        <div className="fixed bottom-6 left-6 z-50 space-y-4">
+          <FloatingActionButton variant="gradient">
+            <span className="text-2xl">🚀</span>
+          </FloatingActionButton>
+          <FloatingActionButton variant="neon">
+            <span className="text-2xl">💬</span>
+          </FloatingActionButton>
+          <FloatingActionButton variant="glass">
+            <span className="text-2xl">⭐</span>
+          </FloatingActionButton>
+        </div>
     </div>
+   </NotificationProvider>
   )
 }
