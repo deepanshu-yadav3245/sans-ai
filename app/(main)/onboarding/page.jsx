@@ -1,12 +1,13 @@
-import React from 'react'
+import { industries } from "@/data/industries";
 
 const OnboardingPage = () => {
+    // Check if user is already onboarded
   return (
-    <div>
-      <h1>Onboarding</h1>
-    </div>
-  )
-}
+    <main>
+       <OnboardingForm industries={industries} />
+    </main>
+  );
+};
 
 export default OnboardingPage
 

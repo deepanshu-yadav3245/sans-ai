@@ -9,3 +9,4 @@ const AICoverLetterPage = () => {
 }
 
 export default AICoverLetterPage    
+           
