@@ -91,10 +91,10 @@ export async function getUserOnboardingStatus(){
             },
         });
         return {
-            isOnboarding:!!user?.industry
+            isOnboarded: !!user?.industry,
         }
     } catch (error){
-        console.erorr("Error checking onboarding status:", error.message)
+        console.error("Error checking onboarding status:", error.message)
         throw new Error("Failed to check onboarding status")
 
     }
