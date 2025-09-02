@@ -9,7 +9,7 @@ const IndustryInsightsPage = async () => {
       }
   return (
     <div>
-      <h1>Industry Insights</h1>            
+      <h1>IndustryInsightsPage</h1>            
     </div>
   )
 }
