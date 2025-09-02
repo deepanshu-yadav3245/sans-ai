@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import {db} from "@/lib/prisma";
 
 
+
 export async function updateUser(data) {
     const {userId} = await auth();
     if (!userId) throw new Error("User not authenticated");
@@ -30,12 +31,12 @@ export async function updateUser(data) {
                 industryInsight = await tx.industryInsight.create({
                     data: {
                         industry:data.industry,
-                        salaryRanges:[], // default value
-                        growthRange:0, // default value
-                        demandLevel:"Medium", // Default value
-                        topSkill:[], // Default empty Array
-                        marketOutLook:"Neutral", // Default value
-                        keyTreands:[],
+                        salaryRanges: [], // default value
+                        growthRate:0, // default value
+                        demandLevel:"MEDIUM", // Default value
+                        topSkills: [], // Default empty Array
+                        marketOutlook:"NEUTRAL", // Default value
+                        keyTrends:[],
                         recommendedSkills:[],
                         nextUpdate:new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 1 week from now
 
@@ -62,7 +63,7 @@ export async function updateUser(data) {
          }
         );
 
-        return result.user
+        return {success:true, ...result}
 
     } catch (error) {
         console.error("Error updating user and industry:", error.message);
