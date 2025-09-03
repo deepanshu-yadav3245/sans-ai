@@ -30,7 +30,7 @@ import {
   TrendingUp,
   TrendingDown,
   Brain,
-} from "lucide-react";
+} from "lucid-react";
 // import { format, formatDistanceToNow } from "date-fns";
 import {
   Card,
