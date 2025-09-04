@@ -2,6 +2,7 @@
 import {db} from "@/lib/prisma"
 import {auth} from "@clerk/nextjs/server"
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { ReceiptTurkishLira } from "lucide-react";
 
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -18,7 +19,10 @@ export async function generateQuize(){
         });
 
         if (!user) throw new Error("User not found")
-    
+
+        try {
+
+        
   const prompt = `
     Generate 10 technical interview questions for a ${
       user.industry
@@ -47,4 +51,12 @@ export async function generateQuize(){
 
      const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
      const quiz =  JSON.parse(cleanedText);
+
+     return quiz.questions;
+
+     } catch (error) {
+            console.error("Error generating quize:" , error);
+            throw new Error("Failed to generate quize question");
+        }
+    
 }
