@@ -2,7 +2,9 @@
 const InterviewPage = () => {
   return (
     <div>
-      <h1>Interview Page</h1>
+       <div>
+         <h1 className="text-6xl font-bold gradient-title">Interview Preparation</h1>
+      </div> 
     </div>
   )
 }

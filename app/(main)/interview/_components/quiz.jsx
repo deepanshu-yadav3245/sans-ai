@@ -149,6 +149,7 @@ export default function Quiz() {
           </div>
         )}
       </CardContent>
+
       <CardFooter className="flex justify-between">
         {!showExplanation && (
           <Button

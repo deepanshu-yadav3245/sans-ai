@@ -1,28 +1,26 @@
 "use server";
-import {db} from "@/lib/prisma"
-import {auth} from "@clerk/nextjs/server"
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import { ReceiptTurkishLira } from "lucide-react";
 
+import { db } from "@/lib/prisma";
+import { auth } from "@clerk/nextjs/server";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-export async function generateQuize(){
-     const {userId} = await auth();
-        if (!userId) throw new Error("User not authenticated");
-    
-        const user = await db.user.findUnique({ 
-            where:{
-                clerkUserId: userId,
-            },
-        });
+export async function generateQuiz() {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
 
-        if (!user) throw new Error("User not found")
+  const user = await db.user.findUnique({
+    where: { clerkUserId: userId },
+    select: {
+      industry: true,
+      skills: true,
+    },
+  });
 
-        try {
+  if (!user) throw new Error("User not found");
 
-        
   const prompt = `
     Generate 10 technical interview questions for a ${
       user.industry
@@ -45,21 +43,19 @@ export async function generateQuize(){
     }
   `;
 
+  try {
     const result = await model.generateContent(prompt);
     const response = result.response;
     const text = response.text();
+    const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
+    const quiz = JSON.parse(cleanedText);
 
-     const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
-     const quiz =  JSON.parse(cleanedText);
-
-     return quiz.questions;
-
-     } catch (error) {
-            console.error("Error generating quize:" , error);
-            throw new Error("Failed to generate quize question");
-        }  
+    return quiz.questions;
+  } catch (error) {
+    console.error("Error generating quiz:", error);
+    throw new Error("Failed to generate quiz questions");
+  }
 }
-
 
 export async function saveQuizResult(questions, answers, score) {
   const { userId } = await auth();
