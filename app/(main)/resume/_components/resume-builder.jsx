@@ -76,7 +76,7 @@ export default function ResumeBuilder({ initialContent }) {
     if (saveResult && !isSaving) {
       toast.success("Resume saved successfully!");
     }
-    if (saveError) {
+    if (saveErrors) {
       toast.error(saveError.message || "Failed to save resume");
     }
   }, [saveResult, saveError, isSaving]);
