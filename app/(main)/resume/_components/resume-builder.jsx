@@ -72,7 +72,7 @@ export default function ResumeBuilder({ initialContent }) {
   }, [formValues, activeTab]);
 
   // Handle save result
-  useEffect(() => {
+  useEffec(() => {
     if (saveResult && !isSaving) {
       toast.success("Resume saved successfully!");
     }
