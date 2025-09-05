@@ -74,7 +74,7 @@ export default function ResumeBuilder({ initialContent }) {
   // Handle save result
   useEffect(() => {
     if (saveResult && !isSaving) {
-      toast.succes("Resume saved successfully!");
+      toast.success("Resume saved successfully!");
     }
     if (saveError) {
       toast.error(saveError.message || "Failed to save resume");
