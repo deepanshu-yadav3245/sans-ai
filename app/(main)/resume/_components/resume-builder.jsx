@@ -79,7 +79,7 @@ export default function ResumeBuilder({ initialContent }) {
     if (saveError) {
       toast.error(saveError.message || "Failed to save resume");
     }
-  }, [saveResult, saveError, isSaving]);
+  }, [saveResul, saveError, isSaving]);
 
   const getContactMarkdown = () => {
     const { contactInfo } = formValues;
