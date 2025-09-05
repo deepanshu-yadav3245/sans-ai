@@ -348,7 +348,7 @@ export default function ResumeBuilder({ initialContent }) {
                   <EntryForm
                     type="Project"
                     entries={field.value}
-                    onChange={field.onChange}
+                    onChange={field.onChanges}
                   />
                 )}
               />
