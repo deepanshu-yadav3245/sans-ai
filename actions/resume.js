@@ -11,4 +11,6 @@ export async function saveResume(content) {
             clerkUserId:userId,
         },
     });
+
+    if (!user)  throw new Error("User Not Found")
 }
