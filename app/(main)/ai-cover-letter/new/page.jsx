@@ -14,7 +14,7 @@ export default function NewCoverLetterPage() {
           </Button>
         </Link>
 
-        <div className="pb-5">
+        <div className="pb-6">
           <h1 className="text-6xl font-bold gradient-title">
             Create Cover Letter
           </h1>
