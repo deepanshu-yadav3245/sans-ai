@@ -19,7 +19,7 @@ export default function NewCoverLetterPage() {
             Create Cover Letter
           </h1>
           <p className="text-muted-foreground">
-            Generate a tailored cover letter for your job applications
+            Generate a tailored cover letter for your job application
           </p>
         </div>
       </div>
