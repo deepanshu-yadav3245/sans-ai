@@ -12,7 +12,7 @@ export const howItWorks = [
     icon: <FileEdit className="w-8 h-8 text-primary" />,
   },
   {
-    title: "Prepare for Interviews",
+    title: "Prepare for Interviews"
     description:
       "Practice with AI-powered mock interviews tailored to your role",
     icon: <Users className="w-8 h-8 text-primary" />,
