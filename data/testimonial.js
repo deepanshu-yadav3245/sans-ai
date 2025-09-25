@@ -21,6 +21,6 @@ export const testimonial = [
     author: "Priya Patel",
     image: "https://randomuser.me/api/portraits/women/74.jpg",
     role: "Marketing Director",
-    company: "Global Corp",
+    company: "Global Corp"`
   },
 ];
