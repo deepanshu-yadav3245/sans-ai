@@ -5,7 +5,7 @@ export const testimonial = [
     author: "Sarah Chen",
     image: "https://randomuser.me/api/portraits/women/75.jpg",
     role: "Software Engineer",
-    company: "Tech Giant Co."
+    company: "Tech Giant Co.",
   },
   {
     quote:
