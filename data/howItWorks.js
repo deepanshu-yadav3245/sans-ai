@@ -4,7 +4,7 @@ export const howItWorks = [
   {
     title: "Professional Onboarding",
     description: "Share your industry and expertise for personalized guidance",
-    icon: <UserPlus className="w-8 h-8 text-primary" />,
+    icon: <UserPlus className="w-8 h-8 text-primary" />
   },
   {
     title: "Craft Your Documents",
